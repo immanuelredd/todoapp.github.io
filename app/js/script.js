@@ -1,5 +1,5 @@
-const closeList = document.getElementsByTagName("LI");
-/*
+/*const closeList = document.getElementsByTagName("LI");
+
 for (let i = 0; i < closeList.length; i++) {
 
     const span = document.createElement("span");
@@ -30,29 +30,33 @@ function removeToDo() {
 
 //small li will not work 
 //it must be capital
-let list = document.querySelector("ul");
-list.addEventListener("click", function (e) {
-    if (e.target.tagName === "LI") {
-        e.target.classList.toggle("checked");
-    }
-}, false);
+
+function taskDone() {
+    let list = document.querySelector("ul");
+    list.addEventListener("click", function (e) {
+        if (e.target.tagName === "LI") {
+            let done = e.target.classList.toggle("checked");
+            return done;
+        }
+    }, false);
+}
+
 
 
 function addToDo() {
+    let msg = document.getElementById("message");
     let newList = document.createElement("li");
     let inputValue = document.getElementById("task").value;
     let task = document.createTextNode(inputValue);
-
     newList.appendChild(task);
-
-    if (inputValue === " ") {
-        alert("You must write something!");
+    if (inputValue.trim() === '') {
+        msg.innerText = "Please Add a task!";
     } else {
+        msg.innerText = "";
         document.getElementById("list").appendChild(newList);
         document.getElementById("task").value = "";
         document.getElementById("task").focus();
     }
-
 
     const span = document.createElement("span");
     const textNode = document.createTextNode("\u00D7");
@@ -62,6 +66,7 @@ function addToDo() {
     newList.appendChild(span);
 
     removeToDo();
+    taskDone();
 
 }
 
@@ -70,10 +75,6 @@ let form = document.getElementById("form");
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    if (document.getElementById("task").value === " ") {
-        alert("add a task");
-    } else {
-        addToDo();
-    }
+    addToDo();
 
 });

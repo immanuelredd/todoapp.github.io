@@ -107,20 +107,34 @@ body::before {
             margin-top: 5px;
             max-width: 500px;
 
-
             input[type=text] {
                 outline: none;
                 width: 300px;
                 padding: 10px;
                 border-radius: 5px;
-                border: 2px solid $Green;
+                border: 2px solid $white;
                 font-size: 18px;
+                background-color: transparent;
+            }
+
+            input[type=text]::placeholder {
+                color: $white;
             }
 
             input[type=text]:focus {
-                border: 2px solid $black
+                border: 2px solid $black;
             }
 
+            >p {
+                color: #ff1100;
+                background-color: rgb(226, 182, 182);
+                width: 200px;
+                margin: auto;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                font-weight: 600;
+                font-size: 18px;
+            }
 
         }
     }
