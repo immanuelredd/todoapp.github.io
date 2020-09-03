@@ -58,7 +58,6 @@ function addToDo() {
         document.getElementById("task").focus();
     }
 
-
     const span = document.createElement("span");
     const textNode = document.createTextNode("\u00D7");
 

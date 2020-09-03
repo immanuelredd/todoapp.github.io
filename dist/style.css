@@ -125,8 +125,25 @@ body::before {
   width: 300px;
   padding: 10px;
   border-radius: 5px;
-  border: 2px solid #3ead3e;
+  border: 2px solid #fff;
   font-size: 18px;
+  background-color: transparent;
+}
+
+.wrapper .form__group input[type=text]::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.wrapper .form__group input[type=text]:-ms-input-placeholder {
+  color: #fff;
+}
+
+.wrapper .form__group input[type=text]::-ms-input-placeholder {
+  color: #fff;
+}
+
+.wrapper .form__group input[type=text]::placeholder {
+  color: #fff;
 }
 
 .wrapper .form__group input[type=text]:focus {
