@@ -1,17 +1,16 @@
 //small li will not work 
 //it must be capital
-let list = document.querySelector("ul");
+const list = document.querySelector("ul");
 list.addEventListener("click", function (e) {
     if (e.target.tagName === "LI") {
-        let done = e.target.classList.toggle("checked");
-        return done;
+        e.target.classList.toggle("checked");
     }
 }, false);
 
 
 function addToDo() {
-    let msg = document.getElementById("message");
-    let inputValue = document.getElementById("task").value;
+    const msg = document.getElementById("message");
+    const inputValue = document.getElementById("task").value;
 
     if (inputValue.trim() === '') {
         msg.innerText = "Please Add a task!";
@@ -22,8 +21,8 @@ function addToDo() {
     document.getElementById("task").value = "";
     document.getElementById("task").focus();
 
-    let newList = document.createElement("li");
-    let task = document.createTextNode(inputValue);
+    const newList = document.createElement("li");
+    const task = document.createTextNode(inputValue);
     newList.appendChild(task);
     document.getElementById("list").appendChild(newList);
     const span = document.createElement("span");
@@ -33,14 +32,11 @@ function addToDo() {
     span.appendChild(textNode);
     newList.appendChild(span);
 
-    const rem = document.getElementsByClassName("close");
-    for (let i = 0; i < rem.length; i++) {
+    span.addEventListener("click", function () {
+        this.parentElement.remove();
+    });
 
-        rem[i].addEventListener("click", function () {
-            this.parentElement.remove();
-        });
 
-    }
 }
 
 let form = document.getElementById("form");
